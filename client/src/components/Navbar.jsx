@@ -18,11 +18,9 @@ const Navbar = () => {
 
                 {/* Left: Navigation Links */}
                 <div className="hidden md:flex gap-8 flex-1">
-                    <Link to="/wholesale" className="text-sm font-bold uppercase tracking-widest text-gray-900 hover:text-primary transition-colors">Shop</Link>
-                    <Link to="/inquiry" className="text-sm font-bold uppercase tracking-widest text-gray-900 hover:text-primary transition-colors">Inquire</Link>
-                    {user && user.isAdmin && (
-                        <Link to="/admin/dashboard" className="text-sm font-bold uppercase tracking-widest text-primary hover:text-black transition-colors">Admin</Link>
-                    )}
+                    <Link to="/wholesale" className="text-sm font-bold uppercase tracking-widest text-gray-900 hover:text-primary transition-colors">Bulk Offers</Link>
+                    <Link to="/wholesale" className="text-sm font-bold uppercase tracking-widest text-gray-900 hover:text-primary transition-colors">Shop Items</Link>
+                    <Link to="/inquiry" className="text-sm font-bold uppercase tracking-widest text-gray-900 hover:text-primary transition-colors">Sourcing Services</Link>
                 </div>
 
                 {/* Center: Logo */}
@@ -33,15 +31,14 @@ const Navbar = () => {
                 </div>
 
                 {/* Right: Actions */}
-                <div className="flex items-center justify-end gap-6 flex-1">
+                <div className="flex items-center justify-end gap-8 flex-1">
+                    <Link to="/" className="text-sm font-bold uppercase tracking-widest text-gray-900 hover:text-primary transition-colors">Home</Link>
+                    <Link to="/wholesale" className="text-sm font-bold uppercase tracking-widest text-gray-900 hover:text-primary transition-colors">About</Link>
+                    <Link to="/inquiry" className="text-sm font-bold uppercase tracking-widest text-gray-900 hover:text-primary transition-colors">Contact</Link>
                     <button className="text-gray-900 hover:text-primary transition-colors"><FaSearch /></button>
-                    {user ? (
-                        <button onClick={handleLogout} className="text-sm font-bold uppercase tracking-widest text-gray-900 hover:text-primary">Logout</button>
-                    ) : (
-                        <Link to="/inquiry" className="text-sm font-bold uppercase tracking-widest text-gray-900 hover:text-primary">Account</Link>
-                    )}
-                    <Link to="/wholesale" className="text-gray-900 hover:text-primary transition-colors">
+                    <Link to="/wholesale" className="text-gray-900 hover:text-primary transition-colors relative">
                         <FaShoppingBag />
+                        <span className="absolute -top-2 -right-2 bg-primary text-white text-[10px] w-4 h-4 flex items-center justify-center rounded-full font-bold">0</span>
                     </Link>
                 </div>
             </div>

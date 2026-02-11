@@ -8,53 +8,51 @@ const Home = () => {
             <section className="relative w-full h-[90vh] flex flex-col justify-center items-center text-center px-4 overflow-hidden border-b border-gray-100">
                 <div className="absolute inset-0 bg-white -z-20"></div>
 
-                {/* Floating Images (Absolute Positioned) */}
-                {/* Top Left - Sneaker */}
+                {/* Floating Images - Local Assets (Bottoms Lowered Only) */}
+                {/* Top Left - Red/White Sneaker (JPG - Needs Blend Mode) -> Back Up */}
                 <img
-                    src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=2670&auto=format&fit=crop"
-                    alt="Floating Shoe 1"
-                    className="floating-img w-48 md:w-64 top-[10%] left-[5%] animate-float rotate-[-15deg] opacity-90 grayscale hover:grayscale-0 transition-all duration-500"
+                    src="/floating/pngtree-red-white-sneaker-transparent-background-png-image_12861690.jpg"
+                    alt="Floating Sneaker 1"
+                    className="absolute w-56 md:w-80 top-[12%] left-[5%] animate-float rotate-[-15deg] transition-all duration-500 pointer-events-none z-0 brightness-110 contrast-125"
+                    style={{ mixBlendMode: 'multiply' }}
                 />
-                {/* Top Right - Accessory/Bag */}
+                {/* Top Right - Nike Run Swift (Yellow/Sea Glass) -> Back Up */}
                 <img
-                    src="https://images.unsplash.com/photo-1548036328-c9fa89d128fa?q=80&w=2669&auto=format&fit=crop"
-                    alt="Floating Bag"
-                    className="floating-img w-40 md:w-56 top-[15%] right-[8%] animate-float-delayed rotate-[10deg] opacity-90 grayscale hover:grayscale-0 transition-all duration-500"
+                    src="/floating/MENS-NIKE-RUN-SWIFT-3-ROAD-RUNNING-SHOES-UNIVERSITY-RED-SEA-GLASS-WHITE-DR2695-600-1_1728x.webp"
+                    alt="Floating Sneaker 2"
+                    className="absolute w-56 md:w-80 top-[15%] right-[5%] animate-float-delayed rotate-[10deg] transition-all duration-500 pointer-events-none z-0 brightness-110 contrast-125"
+                    style={{ mixBlendMode: 'multiply' }}
                 />
-                {/* Bottom Left - Detailed Shoe */}
+                {/* Bottom Left - 360 Stock (Black?) -> Pushed Down Further */}
                 <img
-                    src="https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?q=80&w=2564&auto=format&fit=crop"
-                    alt="Floating Shoe 2"
-                    className="floating-img w-56 md:w-72 bottom-[15%] left-[8%] animate-float-delayed rotate-[15deg] opacity-90 grayscale hover:grayscale-0 transition-all duration-500"
+                    src="/floating/360_F_436659277_vp2706cMybOmUSoGNbRDGeGWttlVOqL9.jpg"
+                    alt="Floating Sneaker 3"
+                    className="absolute w-60 md:w-96 -bottom-[5%] left-[5%] animate-float-delayed rotate-[5deg] transition-all duration-500 pointer-events-none z-0 brightness-110 contrast-125"
+                    style={{ mixBlendMode: 'multiply' }}
                 />
-                {/* Bottom Right - Hat/Accessory */}
+                {/* Bottom Right - Depositphotos -> Pushed Down Further */}
                 <img
-                    src="https://images.unsplash.com/photo-1576871337632-b9aef4c17ab9?q=80&w=2574&auto=format&fit=crop"
-                    alt="Floating Hat"
-                    className="floating-img w-32 md:w-48 bottom-[20%] right-[10%] animate-float rotate-[-10deg] opacity-90 grayscale hover:grayscale-0 transition-all duration-500"
+                    src="/floating/depositphotos_73933823-stock-photo-sneaker-on-white-background.jpg"
+                    alt="Floating Sneaker 4"
+                    className="absolute w-60 md:w-96 -bottom-[2%] right-[5%] animate-float rotate-[-8deg] transition-all duration-500 pointer-events-none z-0 brightness-110 contrast-125"
+                    style={{ mixBlendMode: 'multiply' }}
                 />
 
-                <h1 className="text-[14vw] leading-none font-heading font-black tracking-tighter text-gray-100 mb-0 select-none absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full whitespace-nowrap -z-10">
-                    SNEAKVESTMENT
-                </h1>
-
-                <div className="relative z-10 bg-white/30 backdrop-blur-sm p-4 rounded-xl border border-white/50 shadow-sm">
-                    <h2 className="text-5xl md:text-8xl font-bold font-heading uppercase tracking-wide mb-4 text-gray-900 drop-shadow-sm">
-                        Designer Pieces<br /><span className="text-primary block md:inline">Handpicked</span> For You
-                    </h2>
-                </div>
-
-                <p className="text-lg md:text-xl text-gray-600 max-w-xl font-sans leading-relaxed mb-10 relative z-10 mt-6 bg-white/50 backdrop-blur-sm p-2 rounded">
-                    Exclusive Sneakers, Luxury Designer Pieces, and More.
-                </p>
-
-                <div className="flex gap-4 relative z-10">
-                    <Link to="/wholesale" className="btn btn-primary text-xl px-12 py-5 shadow-[8px_8px_0px_#000]">
-                        Wholesale Boxes
-                    </Link>
-                    <Link to="/wholesale" className="btn btn-secondary text-xl px-12 py-5 bg-white hover:bg-gray-50">
-                        Shop Items
-                    </Link>
+                <div className="relative z-10 max-w-4xl mx-auto">
+                    <h1 className="text-5xl md:text-7xl font-black font-heading uppercase tracking-tighter mb-4 text-gray-900 leading-[0.9]">
+                        Designer Pieces<br />Handpicked For You
+                    </h1>
+                    <p className="text-sm md:text-base text-gray-500 font-mono tracking-widest uppercase mb-10">
+                        Exclusive Sneakers, Luxury Designer Pieces, and More.
+                    </p>
+                    <div className="flex justify-center gap-4">
+                        <Link to="/wholesale" className="btn bg-[#ff3b30] text-white border-[#ff3b30] hover:bg-white hover:text-[#ff3b30] text-sm md:text-base px-8 py-3 shadow-none">
+                            Bulk Offers
+                        </Link>
+                        <Link to="/wholesale" className="btn bg-white text-gray-900 border-gray-300 hover:border-gray-900 text-sm md:text-base px-8 py-3 shadow-none">
+                            Shop Items
+                        </Link>
+                    </div>
                 </div>
             </section>
 

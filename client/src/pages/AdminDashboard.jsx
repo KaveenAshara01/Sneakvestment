@@ -1,26 +1,17 @@
 import React, { Fragment, useState } from 'react';
 import { Link, Outlet } from 'react-router-dom';
+import AdminSidebar from '../components/AdminSidebar';
 
 const AdminDashboard = () => {
     return (
         <div className="min-h-screen bg-background flex">
             {/* Sidebar */}
-            <aside className="w-64 bg-white border-r border-secondary hidden md:block shadow-lg z-10">
-                <div className="p-6 border-b border-secondary">
-                    <h3 className="text-2xl font-heading text-gray-900 italic">Admin Panel</h3>
-                </div>
-                <nav className="p-4 space-y-2">
-                    <Link to="/admin/dashboard" className="block px-4 py-3 text-gray-500 hover:text-primary hover:bg-slate-50 border border-transparent hover:border-secondary transition-all font-mono text-sm uppercase">Overview</Link>
-                    <Link to="/admin/products" className="block px-4 py-3 text-gray-500 hover:text-primary hover:bg-slate-50 border border-transparent hover:border-secondary transition-all font-mono text-sm uppercase">Products</Link>
-                    <Link to="/admin/inquiries" className="block px-4 py-3 text-gray-500 hover:text-primary hover:bg-slate-50 border border-transparent hover:border-secondary transition-all font-mono text-sm uppercase">Inquiries</Link>
-                    <Link to="/" className="block px-4 py-3 text-primary mt-8 border border-primary text-center hover:bg-primary hover:text-white font-bold uppercase text-sm">Back to Site</Link>
-                </nav>
-            </aside>
+            <AdminSidebar /> {/* Use the Reusable Component */}
 
             {/* Content */}
             <main className="flex-1 p-8 bg-slate-50">
                 <header className="mb-8 flex justify-between items-center">
-                    <h1 className="text-4xl text-gray-900 font-heading">Dashboard</h1>
+                    <h1 className="text-4xl text-gray-900 font-heading">Dashboard Overview</h1>
                     <div className="text-gray-500 font-mono text-sm">Welcome back, Admin</div>
                 </header>
 
