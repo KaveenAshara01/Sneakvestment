@@ -76,7 +76,7 @@ const Home = () => {
                     </div>
                     <div className="bg-gray-100 h-[600px] w-full relative overflow-hidden group">
                         <img
-                            src="https://images.unsplash.com/photo-1600185365926-3a2ce3cdb9eb?q=80&w=2525&auto=format&fit=crop"
+                            src="/images/sneaker-wall.jpg"
                             alt="Sneaker Wall"
                             className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 scale-100 group-hover:scale-105"
                         />
@@ -95,7 +95,7 @@ const Home = () => {
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                         {/* Card 1 */}
                         <Link to="/wholesale" className="group block relative h-[500px] overflow-hidden bg-gray-100">
-                            <img src="https://images.unsplash.com/photo-1579338559194-a162d19bf842?q=80&w=2574&auto=format&fit=crop" alt="Jordan Brand" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 grayscale group-hover:grayscale-0" />
+                            <img src="/images/jordan-brand.jpg" alt="Jordan Brand" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 grayscale group-hover:grayscale-0" />
                             <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-all"></div>
                             <div className="absolute bottom-6 left-6">
                                 <span className="text-xs font-mono text-white bg-black px-2 py-1 mb-2 inline-block">MNFC: NIKE INC</span>
@@ -104,7 +104,7 @@ const Home = () => {
                         </Link>
                         {/* Card 2 */}
                         <Link to="/wholesale" className="group block relative h-[500px] overflow-hidden bg-gray-100">
-                            <img src="https://images.unsplash.com/photo-1552346154-21d32810aba3?q=80&w=2670&auto=format&fit=crop" alt="Yeezy / Future" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 grayscale group-hover:grayscale-0" />
+                            <img src="/images/yeezy-future.jpg" alt="Yeezy / Future" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 grayscale group-hover:grayscale-0" />
                             <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-all"></div>
                             <div className="absolute bottom-6 left-6">
                                 <span className="text-xs font-mono text-white bg-black px-2 py-1 mb-2 inline-block">MNFC: ADIDAS / YEEZY</span>
@@ -113,7 +113,7 @@ const Home = () => {
                         </Link>
                         {/* Card 3 */}
                         <Link to="/wholesale" className="group block relative h-[500px] overflow-hidden bg-gray-100">
-                            <img src="https://images.unsplash.com/photo-1555529733-0e670560f7e1?q=80&w=2574&auto=format&fit=crop" alt="Luxury" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 grayscale group-hover:grayscale-0" />
+                            <img src="/images/luxury-collab.jpg" alt="Luxury" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 grayscale group-hover:grayscale-0" />
                             <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-all"></div>
                             <div className="absolute bottom-6 left-6">
                                 <span className="text-xs font-mono text-white bg-black px-2 py-1 mb-2 inline-block">MNFC: VARIOUS</span>
@@ -153,7 +153,7 @@ const Home = () => {
                 <div className="container-custom grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
                     <div className="bg-white h-[700px] w-full relative overflow-hidden order-2 md:order-1 border border-gray-200 group">
                         <img
-                            src="https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?q=80&w=2574&auto=format&fit=crop"
+                            src="/images/authentication.jpg"
                             alt="Authentication"
                             className="w-full h-full object-cover scale-100 group-hover:scale-105 transition-transform duration-1000"
                         />

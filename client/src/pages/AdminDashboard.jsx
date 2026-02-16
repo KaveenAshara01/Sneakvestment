@@ -4,12 +4,12 @@ import AdminSidebar from '../components/AdminSidebar';
 
 const AdminDashboard = () => {
     return (
-        <div className="min-h-screen bg-background flex">
+        <div className="min-h-screen bg-white flex relative z-0">
             {/* Sidebar */}
             <AdminSidebar /> {/* Use the Reusable Component */}
 
             {/* Content */}
-            <main className="flex-1 p-8 bg-slate-50">
+            <main className="flex-1 p-8 bg-white pt-28">
                 <header className="mb-8 flex justify-between items-center">
                     <h1 className="text-4xl text-gray-900 font-heading">Dashboard Overview</h1>
                     <div className="text-gray-500 font-mono text-sm">Welcome back, Admin</div>

@@ -9,7 +9,11 @@ const ProductSchema = new mongoose.Schema({
     description: { type: String },
     category: { type: String, default: 'Sneakers' },
     type: { type: String, enum: ['bulk', 'single'], default: 'bulk' },
-    inStock: { type: Boolean, default: true }
+    inStock: { type: Boolean, default: true },
+    options: [{
+        label: { type: String }, // e.g., "x25"
+        price: { type: Number }  // e.g., 500
+    }]
 }, { timestamps: true });
 
 export default mongoose.model('Product', ProductSchema);

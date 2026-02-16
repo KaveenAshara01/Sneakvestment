@@ -19,7 +19,7 @@ const Navbar = () => {
                 {/* Left: Navigation Links */}
                 <div className="hidden md:flex gap-8 flex-1">
                     <Link to="/wholesale" className="text-sm font-bold uppercase tracking-widest text-gray-900 hover:text-primary transition-colors">Bulk Offers</Link>
-                    <Link to="/wholesale" className="text-sm font-bold uppercase tracking-widest text-gray-900 hover:text-primary transition-colors">Shop Items</Link>
+                    <Link to="/shop" className="text-sm font-bold uppercase tracking-widest text-gray-900 hover:text-primary transition-colors">Shop Items</Link>
                     <Link to="/inquiry" className="text-sm font-bold uppercase tracking-widest text-gray-900 hover:text-primary transition-colors">Sourcing Services</Link>
                 </div>
 

@@ -8,6 +8,7 @@ const AdminProducts = () => {
     const [loading, setLoading] = useState(true);
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [editingProduct, setEditingProduct] = useState(null);
+    const [uploading, setUploading] = useState(false);
 
     const [formData, setFormData] = useState({
         name: '',
@@ -18,7 +19,8 @@ const AdminProducts = () => {
         description: '',
         category: 'Sneakers',
         type: 'bulk',
-        inStock: true
+        inStock: true,
+        options: []
     });
 
     useEffect(() => {
@@ -58,7 +60,8 @@ const AdminProducts = () => {
             description: product.description,
             category: product.category || 'Sneakers',
             type: product.type || 'bulk',
-            inStock: product.inStock
+            inStock: product.inStock,
+            options: product.options || []
         });
         setIsModalOpen(true);
     };
@@ -74,14 +77,56 @@ const AdminProducts = () => {
             description: '',
             category: 'Sneakers',
             type: 'bulk',
-            inStock: true
+            inStock: true,
+            options: []
         });
         setIsModalOpen(true);
+    };
+
+    const handleImageUpload = async (e) => {
+        const files = Array.from(e.target.files);
+        if (files.length === 0) return;
+
+        setUploading(true);
+        const formData = new FormData();
+        files.forEach(file => {
+            formData.append('images', file);
+        });
+
+        try {
+            const res = await api.post('/upload', formData, {
+                headers: { 'Content-Type': 'multipart/form-data' }
+            });
+            // Append new URLs to existing images (handled as comma-separated string in state)
+            const currentImages = formData.images ? formData.images.split(',').filter(Boolean) : [];
+            const newImages = [...currentImages, ...res.data.urls];
+            setFormData(prev => ({ ...prev, images: newImages.join(',') }));
+            setUploading(false);
+        } catch (err) {
+            console.error(err);
+            alert("Image upload failed");
+            setUploading(false);
+        }
     };
 
     const handleChange = (e) => {
         const value = e.target.type === 'checkbox' ? e.target.checked : e.target.value;
         setFormData({ ...formData, [e.target.name]: value });
+    };
+
+    const handleOptionChange = (index, field, value) => {
+        const newOptions = [...formData.options];
+        newOptions[index][field] = value;
+        setFormData({ ...formData, options: newOptions });
+    };
+
+    const addOption = () => {
+        setFormData({ ...formData, options: [...formData.options, { label: '', price: '' }] });
+    };
+
+    const removeOption = (index) => {
+        const newOptions = formData.options.filter((_, i) => i !== index);
+        setFormData({ ...formData, options: newOptions });
     };
 
     const handleSubmit = async (e) => {
@@ -109,7 +154,7 @@ const AdminProducts = () => {
     return (
         <div className="min-h-screen bg-background flex">
             <AdminSidebar />
-            <main className="flex-1 p-8 bg-slate-50 min-h-screen">
+            <main className="flex-1 p-8 bg-white min-h-screen pt-28">
                 <header className="mb-8 flex justify-between items-center">
                     <div>
                         <h1 className="text-4xl text-gray-900 font-heading">Products</h1>
@@ -212,16 +257,55 @@ const AdminProducts = () => {
                                     <input type="text" name="category" value={formData.category} onChange={handleChange} className="w-full border border-gray-300 p-2 rounded focus:border-primary focus:outline-none" placeholder="e.g. Sneakers" />
                                 </div>
                             </div>
+
+
                             {formData.type === 'bulk' && (
-                                <div>
-                                    <label className="block text-xs font-bold uppercase text-gray-500 mb-1">Min Order Quantity</label>
-                                    <input type="number" name="minOrder" value={formData.minOrder} onChange={handleChange} className="w-full border border-gray-300 p-2 rounded focus:border-primary focus:outline-none" />
+                                <div className="col-span-1 md:col-span-2 border p-4 rounded bg-gray-50">
+                                    <label className="block text-xs font-bold uppercase text-gray-500 mb-2">Bulk Pricing Options (Variants)</label>
+                                    {formData.options.map((option, index) => (
+                                        <div key={index} className="flex gap-2 mb-2 items-center">
+                                            <input
+                                                type="text"
+                                                placeholder="Label (e.g. x25)"
+                                                value={option.label}
+                                                onChange={(e) => handleOptionChange(index, 'label', e.target.value)}
+                                                className="border p-2 rounded w-1/3 text-sm"
+                                            />
+                                            <input
+                                                type="number"
+                                                placeholder="Price"
+                                                value={option.price}
+                                                onChange={(e) => handleOptionChange(index, 'price', e.target.value)}
+                                                className="border p-2 rounded w-1/3 text-sm"
+                                            />
+                                            <button type="button" onClick={() => removeOption(index)} className="text-red-500 hover:text-red-700 font-bold px-2">&times;</button>
+                                        </div>
+                                    ))}
+                                    <button type="button" onClick={addOption} className="text-primary text-xs font-bold uppercase hover:underline">+ Add Option</button>
                                 </div>
                             )}
                             <div>
-                                <label className="block text-xs font-bold uppercase text-gray-500 mb-1">Image URLs (comma separated)</label>
-                                <input type="text" name="images" value={formData.images} onChange={handleChange} className="w-full border border-gray-300 p-2 rounded focus:border-primary focus:outline-none" placeholder="https://..., https://..." />
-                                <p className="text-xs text-gray-400 mt-1">For now, paste direct image links. Cloudinary upload coming soon.</p>
+                                <label className="block text-xs font-bold uppercase text-gray-500 mb-1">Product Images</label>
+
+                                {/* File Upload Input */}
+                                <div className="mb-2">
+                                    <label className="cursor-pointer bg-secondary hover:bg-gray-300 text-gray-700 font-bold py-2 px-4 rounded inline-flex items-center gap-2 transition-colors">
+                                        <FaBoxOpen /> <span>{uploading ? 'Uploading...' : 'Select Images'}</span>
+                                        <input type="file" multiple onChange={handleImageUpload} className="hidden" accept="image/*" disabled={uploading} />
+                                    </label>
+                                </div>
+
+                                {/* URL Input (Fallback/Display) */}
+                                <input type="text" name="images" value={formData.images} onChange={handleChange} className="w-full border border-gray-300 p-2 rounded focus:border-primary focus:outline-none text-xs" placeholder="Image URLs will appear here..." readOnly />
+
+                                {/* Preview */}
+                                {formData.images && (
+                                    <div className="flex gap-2 mt-2 overflow-x-auto pb-2">
+                                        {formData.images.split(',').map((url, index) => (
+                                            url && <img key={index} src={url.trim()} alt="Preview" className="h-16 w-16 object-cover rounded border border-gray-200" />
+                                        ))}
+                                    </div>
+                                )}
                             </div>
                             <div>
                                 <label className="block text-xs font-bold uppercase text-gray-500 mb-1">Description</label>
