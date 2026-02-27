@@ -32,10 +32,12 @@ app.use(cors({
             'http://localhost:5000',
             'http://127.0.0.1:5000'
         ];
-        // Allow requests with no origin (like mobile apps or curl requests)
-        if (!origin) return callback(null, true);
-
-        if (allowedOrigins.indexOf(origin) !== -1 || origin.includes('ngrok-free.app')) {
+        if (
+            !origin ||
+            allowedOrigins.indexOf(origin) !== -1 ||
+            origin.includes('onrender.com') ||
+            origin.includes('ngrok-free.app')
+        ) {
             callback(null, true);
         } else {
             callback(new Error('Not allowed by CORS'));
