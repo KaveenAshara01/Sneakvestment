@@ -198,7 +198,7 @@ const AdminProducts = () => {
                                                     {product.type}
                                                 </span>
                                             </td>
-                                            <td className="p-4 font-mono">${product.price}</td>
+                                            <td className="p-4 font-mono">€{product.price}</td>
                                             <td className="p-4">
                                                 {product.inStock ? (
                                                     <span className="text-green-600 font-bold flex items-center gap-1"><span className="w-2 h-2 rounded-full bg-green-500"></span> In Stock</span>
@@ -242,7 +242,7 @@ const AdminProducts = () => {
                             </div>
                             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                                 <div>
-                                    <label className="block text-xs font-bold uppercase text-gray-500 mb-1">Price ($)</label>
+                                    <label className="block text-xs font-bold uppercase text-gray-500 mb-1">Price (€)</label>
                                     <input type="number" name="price" value={formData.price} onChange={handleChange} className="w-full border border-gray-300 p-2 rounded focus:border-primary focus:outline-none" required />
                                 </div>
                                 <div>

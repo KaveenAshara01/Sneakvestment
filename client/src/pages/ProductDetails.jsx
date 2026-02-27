@@ -35,13 +35,13 @@ const ProductDetails = () => {
 
     // Calculate display price
     const displayPrice = selectedOption ? selectedOption.price : product.price;
-    const priceLabel = selectedOption ? `${selectedOption.label} - $${selectedOption.price}` : `$${product.price}`;
+    const priceLabel = selectedOption ? `${selectedOption.label} - €${selectedOption.price}` : `€${product.price}`;
 
     // Prepare WhatsApp Message
-    const whatsappNumber = "447445770942"; // Replace with actual number if different
+    const whatsappNumber = "447498198421"; // Updated number
     const message = encodeURIComponent(
         `Hi, I'm interested in this product: ${product.name}` +
-        (selectedOption ? `\nOption: ${selectedOption.label} ($${selectedOption.price})` : '') +
+        (selectedOption ? `\nOption: ${selectedOption.label} (€${selectedOption.price})` : '') +
         `\nLink: ${window.location.href}`
     );
     const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${message}`;
@@ -96,16 +96,16 @@ const ProductDetails = () => {
                                         >
                                             {product.options.map((opt, idx) => (
                                                 <option key={idx} value={opt.label}>
-                                                    {opt.label} - ${opt.price}
+                                                    {opt.label} - €{opt.price}
                                                 </option>
                                             ))}
                                         </select>
                                         <div className="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none">▼</div>
                                     </div>
-                                    <p className="text-3xl font-heading mt-4">${displayPrice}</p>
+                                    <p className="text-3xl font-heading mt-4">€{displayPrice}</p>
                                 </div>
                             ) : (
-                                <p className="text-3xl font-heading">${product.price}</p>
+                                <p className="text-3xl font-heading">€{product.price}</p>
                             )}
                         </div>
 

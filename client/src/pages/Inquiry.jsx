@@ -181,7 +181,7 @@ const Inquiry = () => {
                     <div className="mt-8 bg-[#25D366] text-white p-6 shadow-[8px_8px_0px_#000] text-center group cursor-pointer hover:-translate-y-1 transition-transform">
                         <h4 className="font-heading text-2xl mb-1">Prefer to Chat?</h4>
                         <p className="font-mono text-sm mb-4">Message us directly on WhatsApp for faster response.</p>
-                        <a href="https://wa.me/" target="_blank" rel="noreferrer" className="inline-block bg-white text-[#25D366] font-bold px-6 py-2 uppercase text-sm hover:bg-black hover:text-white transition-colors">
+                        <a href="https://wa.me/447498198421" target="_blank" rel="noreferrer" className="inline-block bg-white text-[#25D366] font-bold px-6 py-2 uppercase text-sm hover:bg-black hover:text-white transition-colors">
                             Chat Now
                         </a>
                     </div>

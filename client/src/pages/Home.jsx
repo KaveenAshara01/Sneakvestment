@@ -11,7 +11,7 @@ const Home = () => {
         const fetchBulkProducts = async () => {
             try {
                 const res = await api.get('/products?type=bulk');
-                setBulkProducts(res.data.slice(0, 4)); // Show top 4 on home
+                setBulkProducts(res.data.slice(0, 4)); // Fetch top 4
             } catch (err) {
                 console.error(err);
             } finally {
@@ -33,25 +33,25 @@ const Home = () => {
                 <img
                     src="/floating/pngtree-red-white-sneaker-transparent-background-png-image_12861690.jpg"
                     alt="Floating Sneaker 1"
-                    className="absolute w-48 md:w-72 top-[22%] left-[8%] animate-float rotate-[-15deg] pointer-events-none z-0 brightness-105 opacity-0 animate-pop-in"
+                    className="absolute w-32 md:w-72 top-[15%] left-[2%] md:left-[5%] animate-float rotate-[-15deg] pointer-events-none z-0 brightness-105 opacity-0 animate-pop-in"
                     style={{ mixBlendMode: 'multiply', animationDelay: '0.2s' }}
                 />
                 <img
                     src="/floating/MENS-NIKE-RUN-SWIFT-3-ROAD-RUNNING-SHOES-UNIVERSITY-RED-SEA-GLASS-WHITE-DR2695-600-1_1728x.webp"
                     alt="Floating Sneaker 2"
-                    className="absolute w-48 md:w-72 top-[25%] right-[8%] animate-float-delayed rotate-[12deg] pointer-events-none z-0 brightness-105 opacity-0 animate-pop-in"
+                    className="absolute w-32 md:w-72 top-[18%] right-[2%] md:right-[5%] animate-float-delayed rotate-[12deg] pointer-events-none z-0 brightness-105 opacity-0 animate-pop-in"
                     style={{ mixBlendMode: 'multiply', animationDelay: '0.4s' }}
                 />
                 <img
                     src="/floating/360_F_436659277_vp2706cMybOmUSoGNbRDGeGWttlVOqL9.jpg"
                     alt="Floating Sneaker 3"
-                    className="absolute w-56 md:w-80 bottom-[8%] left-[10%] animate-float-delayed rotate-[5deg] pointer-events-none z-0 brightness-105 opacity-0 animate-pop-in"
+                    className="absolute w-40 md:w-80 bottom-[5%] left-[2%] md:left-[5%] animate-float-delayed rotate-[5deg] pointer-events-none z-0 brightness-105 opacity-0 animate-pop-in"
                     style={{ mixBlendMode: 'multiply', animationDelay: '0.6s' }}
                 />
                 <img
                     src="/floating/depositphotos_73933823-stock-photo-sneaker-on-white-background.jpg"
                     alt="Floating Sneaker 4"
-                    className="absolute w-56 md:w-80 bottom-[6%] right-[12%] animate-float rotate-[-8deg] pointer-events-none z-0 brightness-105 opacity-0 animate-pop-in"
+                    className="absolute w-40 md:w-80 bottom-[3%] right-[2%] md:right-[5%] animate-float rotate-[-8deg] pointer-events-none z-0 brightness-105 opacity-0 animate-pop-in"
                     style={{ mixBlendMode: 'multiply', animationDelay: '0.8s' }}
                 />
 
@@ -116,26 +116,22 @@ const Home = () => {
 
             {/* Bulk Offers Section */}
             <section id="bulk-section" className="py-24 px-6 bg-white">
-                <div className="container-custom">
-                    <div className="flex justify-between items-end mb-16">
-                        <div>
-                            <h2 className="text-4xl md:text-5xl font-black uppercase tracking-tighter">Bulk Offers</h2>
-                            <p className="text-gray-500 font-medium uppercase text-xs tracking-widest mt-2">Premium Wholesale inventory</p>
-                        </div>
-                        <Link to="/wholesale" className="text-sm font-black uppercase tracking-widest border-b-2 border-primary pb-1 hover:text-primary transition-colors">
-                            View All &rarr;
-                        </Link>
+                <div className="max-w-[1400px] mx-auto">
+                    <div className="mb-12">
+                        <h2 className="text-3xl md:text-4xl font-black uppercase tracking-tighter text-black">
+                            Check Out Popular Bulk Offers
+                        </h2>
                     </div>
 
                     {loading ? (
-                        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-                            {[...Array(4)].map((_, i) => (
-                                <div key={i} className="animate-pulse bg-gray-100 h-[400px]"></div>
+                        <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+                            {[...Array(3)].map((_, i) => (
+                                <div key={i} className="animate-pulse bg-gray-50 h-[550px]"></div>
                             ))}
                         </div>
                     ) : (
-                        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-                            {bulkProducts.map(product => (
+                        <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+                            {bulkProducts.slice(0, 3).map(product => (
                                 <ProductCard key={product._id} product={product} />
                             ))}
                         </div>

@@ -29,9 +29,9 @@ const Navbar = () => {
                 </div>
 
                 {/* Center: Logo */}
-                <div className="flex-shrink-0 flex justify-center">
+                <div className="flex-shrink-0 flex justify-center py-1">
                     <Link to="/">
-                        <img src="/logo.png" alt="Sneakvestment" className="h-16 w-auto object-contain" />
+                        <img src="/logo.png" alt="Sneakvestment" className="h-20 w-auto object-contain transition-transform hover:scale-105" />
                     </Link>
                 </div>
 
