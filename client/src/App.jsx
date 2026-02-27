@@ -12,10 +12,12 @@ import AdminProducts from './pages/AdminProducts';
 import ProtectedRoute from './components/ProtectedRoute';
 import { AuthProvider } from './context/AuthContext';
 
+import Footer from './components/Footer';
+
 function App() {
   return (
     <AuthProvider>
-      <div className="App">
+      <div className="App flex flex-col min-h-screen">
         <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />
@@ -38,6 +40,7 @@ function App() {
             }
           />
         </Routes>
+        <Footer />
       </div>
     </AuthProvider>
   );

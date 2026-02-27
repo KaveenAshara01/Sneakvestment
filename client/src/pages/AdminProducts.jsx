@@ -254,7 +254,12 @@ const AdminProducts = () => {
                                 </div>
                                 <div>
                                     <label className="block text-xs font-bold uppercase text-gray-500 mb-1">Category</label>
-                                    <input type="text" name="category" value={formData.category} onChange={handleChange} className="w-full border border-gray-300 p-2 rounded focus:border-primary focus:outline-none" placeholder="e.g. Sneakers" />
+                                    <select name="category" value={formData.category} onChange={handleChange} className="w-full border border-gray-300 p-2 rounded focus:border-primary focus:outline-none">
+                                        <option value="Sneakers">Sneakers</option>
+                                        <option value="Designer Items">Designer Items</option>
+                                        <option value="Streetwear">Streetwear</option>
+                                        <option value="Accessories">Accessories</option>
+                                    </select>
                                 </div>
                             </div>
 
