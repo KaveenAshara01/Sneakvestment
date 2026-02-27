@@ -6,7 +6,9 @@
   "scripts": {
     "server": "cd server && npm start",
     "client": "cd client && npm run dev",
-    "start": "concurrently \"npm run server\" \"npm run client\""
+    "install-all": "npm install && npm install --prefix server && npm install --prefix client",
+    "build": "npm run install-all && npm run build --prefix client",
+    "start": "node server/server.js"
   },
   "keywords": [],
   "author": "",
