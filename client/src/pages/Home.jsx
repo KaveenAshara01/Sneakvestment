@@ -57,7 +57,7 @@ const Home = () => {
 
                 <div className="relative z-10 max-w-5xl mx-auto px-6 opacity-0 animate-reveal-up" style={{ animationDelay: '0.1s' }}>
                     <h1 className="text-6xl md:text-8xl font-black font-heading uppercase tracking-tighter mb-8 leading-[0.85] text-black">
-                        DESIGNER PIECES<br />HANDPICKED FOR YOU.
+                        MAKING RESELL <br />GREAT AGAIN.
                     </h1>
                     <div className="flex flex-col md:flex-row justify-center gap-4">
                         <button
